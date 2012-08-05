@@ -10,11 +10,12 @@ public class Bullet extends MovableEntity {
 	private Entity firingPlayer;
 
 	Bullet(float x, float y, Entity firingPlayer) {
-		super(x, y, Math.signum(firingPlayer.getRotation())*CConstants.BULLET_SPEED,firingPlayer.getRotation());		
+		super(x, y, Math.signum(firingPlayer.getRotation()) * CConstants.BULLET_SPEED, firingPlayer.getRotation());
 		this.firingPlayer = firingPlayer;
 	}
 
 	public void init(GameContainer container) throws SlickException {
+		super.init(container);
 		this.setTexture(new Image("/data/bullet.png"));
 	}
 
@@ -25,13 +26,13 @@ public class Bullet extends MovableEntity {
 		if (tmpe == null) // bullet didn't collide with anything
 			return;
 
-		if (tmpe == MainGameState.fakeentity) { // bullet reached end of map add in to remove list
-			MainGameState.playerObjectListRemove.add(this);
+		if (tmpe.equals(MainGameState.fakeentity)) { // bullet reached end of map add in to remove list
+			MainGameState.objectListRemove.add(this);
 			return;
 		}
 
 		((Character) tmpe).takeDamage(5); // bullet collided with a character
-		MainGameState.playerObjectListRemove.add(this); // add in to remove list
+		MainGameState.objectListRemove.add(this); // add in to remove list
 	}
 
 	public void render(GameContainer container, Graphics g) throws SlickException {

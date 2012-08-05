@@ -7,7 +7,7 @@ import org.newdawn.slick.SlickException;
 public class Enemy extends Character {
 
 	public Enemy(float x, float y) {
-		super(x, y,1,1,1,1,1,0);
+		super(x, y,1,1,1,1,1,CConstants.ROTATION_LEFT);
 	}
 
 	public void init(GameContainer container) throws SlickException {

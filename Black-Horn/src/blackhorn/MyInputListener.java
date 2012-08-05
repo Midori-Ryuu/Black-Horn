@@ -7,12 +7,6 @@ public class MyInputListener implements InputListener {
 
 	@Override
 	public void mouseClicked(int button, int x, int y, int clickCount) {
-
-		// if(clickCount==2)
-		// {
-		// game.enterState(Math.abs(1-game.getCurrentStateID()));
-		// }
-
 	}
 
 	@Override
@@ -65,25 +59,44 @@ public class MyInputListener implements InputListener {
 	@Override
 	public void keyPressed(int key, char c) {
 
-		if (key == Input.KEY_RIGHT)
-			MainGame.player.setMovementSpeed(CConstants.PLAYER_SPEED);
-		else if (key == Input.KEY_LEFT)
-			MainGame.player.setMovementSpeed(-CConstants.PLAYER_SPEED);
-		else if(key== Input.KEY_SPACE)
+		switch (key) {
+		case Input.KEY_RIGHT:
+			MainGame.player.setSideSpeed(CConstants.PLAYER_SPEED);
+			break;
+
+		case Input.KEY_LEFT:
+			MainGame.player.setSideSpeed(-CConstants.PLAYER_SPEED);
+			break;
+
+		case Input.KEY_UP:
+			if (!MainGame.player.isJumping()) {
+				MainGame.player.setJumpSpeed(-CConstants.PLAYER_JUMP_SPEED);
+				MainGame.player.setJumping(true);
+			}
+			break;
+
+		case Input.KEY_SPACE:
 			MainGame.player.fireWeapon(MainGame.container);
-		else if (key == Input.KEY_ESCAPE)
+			break;
+
+		case Input.KEY_ESCAPE:
 			MainGame.game.enterState(Math.abs(1 - MainGame.game.getCurrentStateID()));
-		
-	
+			break;
+
+		default:
+			break;
+
+		}
+
 	}
 
 	@Override
 	public void keyReleased(int key, char c) {
-		// TODO Auto-generated method stub
+
 		if (key == Input.KEY_RIGHT)
-			MainGame.player.setMovementSpeed(0f);
+			MainGame.player.setSideSpeed(0f);
 		else if (key == Input.KEY_LEFT)
-			MainGame.player.setMovementSpeed(0f);
+			MainGame.player.setSideSpeed(0f);
 	}
 
 	@Override

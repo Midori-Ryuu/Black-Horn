@@ -148,7 +148,7 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		for (int i = 0; i < terrainObjectList.size(); i++)
 			terrainObjectList.get(i).update(container, delta);
 
-		objectList.removeAll(objectListRemove); // removes all dead;characters
+		objectList.removeAll(objectListRemove); // removes all collided objects (bullets, grenades)
 		playerObjectList.removeAll(playerObjectListRemove); // removes all collided objects (bullets, grenades)
 
 	}

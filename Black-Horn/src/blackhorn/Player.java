@@ -6,23 +6,11 @@ import org.newdawn.slick.SlickException;
 
 public class Player extends Character {
 
-	private float mousex, mousey;
-
 	public Player(float x, float y) {
-		super(x, y, 1, 1, 1, 1, 0,90);
-		mousex = x;
-		mousey = y;
+		super(x, y, 1, 1, 1, 1, 0, CConstants.ROTATION_RIGHT);
 
 	}
-
-	public double getMouseX() {
-		return mousex;
-	}
-
-	public double getMouseY() {
-		return mousey;
-	}
-
+	
 	public void init(GameContainer container) throws SlickException {
 		super.init(container);
 		this.setTexture(new Image("/data/valyrie.png"));
@@ -32,8 +20,7 @@ public class Player extends Character {
 
 	public void update(GameContainer container, int delta) throws SlickException {
 		super.update(container, delta);
-
-		this.moveForward(delta, null);
+		
 	}
 
 	public void fireWeapon(GameContainer gc) {
@@ -42,10 +29,9 @@ public class Player extends Character {
 		try {
 			bullet.init(gc);
 		} catch (SlickException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} // give bullet texture
-		MainGameState.playerObjectList.add(bullet); // add bullet to player spawned object list for update and rendering
+		MainGameState.objectList.add(bullet); // add bullet to player spawned object list for update and rendering
 	}
 
 	public float getAttackSpeed() {
