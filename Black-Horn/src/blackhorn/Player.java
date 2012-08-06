@@ -7,10 +7,10 @@ import org.newdawn.slick.SlickException;
 public class Player extends Character {
 
 	public Player(float x, float y) {
-		super(x, y, 1, 1, 1, 1, 0, CConstants.ROTATION_RIGHT);
+		super(x, y, 1, 1, 1, 1, 0, CConstants.ROTATION_RIGHT, CConstants.PLAYER_JUMP_SPEED, CConstants.PLAYER_WEIGHT);
 
 	}
-	
+
 	public void init(GameContainer container) throws SlickException {
 		super.init(container);
 		this.setTexture(new Image("/data/valyrie.png"));
@@ -20,7 +20,7 @@ public class Player extends Character {
 
 	public void update(GameContainer container, int delta) throws SlickException {
 		super.update(container, delta);
-		
+
 	}
 
 	public void fireWeapon(GameContainer gc) {

@@ -76,7 +76,8 @@ public class MyInputListener implements InputListener {
 			break;
 
 		case Input.KEY_SPACE:
-			MainGame.player.fireWeapon(MainGame.container);
+			if (!MainGame.player.isJumping())
+				MainGame.player.fireWeapon(MainGame.container);
 			break;
 
 		case Input.KEY_ESCAPE:

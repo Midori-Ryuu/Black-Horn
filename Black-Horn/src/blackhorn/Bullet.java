@@ -10,7 +10,7 @@ public class Bullet extends MovableEntity {
 	private Entity firingPlayer;
 
 	Bullet(float x, float y, Entity firingPlayer) {
-		super(x, y, Math.signum(firingPlayer.getRotation()) * CConstants.BULLET_SPEED, firingPlayer.getRotation());
+		super(x, y, Math.signum(firingPlayer.getRotation()) * CConstants.BULLET_SPEED, firingPlayer.getRotation(),0,0);
 		this.firingPlayer = firingPlayer;
 	}
 
@@ -21,8 +21,8 @@ public class Bullet extends MovableEntity {
 
 	public void update(GameContainer container, int delta) throws SlickException {
 		super.update(container, delta);
-		MovableEntity tmpe = (MovableEntity) this.moveForward(delta, firingPlayer);
-
+		Entity tmpe = this.moveForward(delta, firingPlayer);
+		
 		if (tmpe == null) // bullet didn't collide with anything
 			return;
 
@@ -30,9 +30,16 @@ public class Bullet extends MovableEntity {
 			MainGameState.objectListRemove.add(this);
 			return;
 		}
-
-		((Character) tmpe).takeDamage(5); // bullet collided with a character
-		MainGameState.objectListRemove.add(this); // add in to remove list
+		
+		if (tmpe instanceof Ground)
+			MainGameState.objectListRemove.add(this);
+		
+		if(tmpe instanceof Character)
+		{
+			((Character) tmpe).takeDamage(5); // bullet collided with a character
+			MainGameState.objectListRemove.add(this); // add in to remove list
+		}
+		
 	}
 
 	public void render(GameContainer container, Graphics g) throws SlickException {

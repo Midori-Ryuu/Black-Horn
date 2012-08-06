@@ -13,11 +13,14 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 	Nifty nifty;
 	Image map = null;
 	/*
-	 * Enemy monster1 = null; Enemy monster2 = null; Enemy monster3 =
-	 * null; Enemy monster4 = null; Debris debris1 = null; Debris debris2 =
-	 * null; Debris debris3 = null; Debris debris4 = null; Debris debris5 =
-	 * null; Debris debris6 = null;
+	 * Enemy monster1 = null; Enemy monster2 = null; Enemy monster3 = null;
+	 * Enemy monster4 = null; Debris debris1 = null; Debris debris2 = null;
+	 * Debris debris3 = null; Debris debris4 = null; Debris debris5 = null;
+	 * Debris debris6 = null;
 	 */
+
+	Ground ground1 = null;
+	Ground ground2 = null;
 
 	public static ArrayList<Entity> objectList;
 	public static ArrayList<Entity> playerObjectList;
@@ -31,18 +34,18 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 
 		super();
 		this.stateID = stateID;
-		MainGame.player = new Player(1655, 1655);
+		MainGame.player = new Player(1655, 2655);
 		/*
-		 * monster1 = new Enemy(1400, 1400); monster2 = new Enemy(1300,
-		 * 1300); monster3 = new Enemy(1700, 1700); monster4 = new
-		 * Enemy(2000, 2000);
+		 * monster1 = new Enemy(1400, 1400); monster2 = new Enemy(1300, 1300);
+		 * monster3 = new Enemy(1700, 1700); monster4 = new Enemy(2000, 2000);
 		 * 
 		 * debris1 = new Debris(1100, 1000); debris2 = new Debris(2200, 2200);
 		 * debris3 = new Debris(1500, 1500); debris4 = new Debris(600, 600);
 		 * debris5 = new Debris(3100, 1000); debris6 = new Debris(1700, 1200);
 		 */
-
-		fakeentity = new MovableEntity(0, 0, 0, 0);
+		ground1 = new Ground(605, 2800, 0f);
+		ground2 = new Ground(1500, 2850, 0f);
+		fakeentity = new MovableEntity(0, 0, 0, 0, 0, 0);
 		// list of players and non-player spawned objects
 		objectList = new ArrayList<Entity>();
 
@@ -58,6 +61,9 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		terrainObjectList = new ArrayList<Entity>();
 
 		objectList.add(MainGame.player);
+		objectList.add(ground1);
+		objectList.add(ground2);
+
 		/*
 		 * objectList.add(monster1); objectList.add(monster2);
 		 * objectList.add(monster3); objectList.add(monster4);

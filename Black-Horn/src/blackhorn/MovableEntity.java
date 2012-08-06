@@ -8,14 +8,16 @@ public class MovableEntity extends Entity {
 
 	private float sideSpeed;
 	private float jumpSpeed;
+	private float weight;
 	private boolean isJumping;
-
-	public MovableEntity(float x, float y, float sideSpeed, float rotation) {
+	
+	public MovableEntity(float x, float y, float sideSpeed, float rotation, float jumpSpeed, float weight) {
 
 		super(x, y, rotation);
 		this.sideSpeed = sideSpeed;
-		this.jumpSpeed = CConstants.PLAYER_JUMP_SPEED;
-		setJumping(false);
+		this.jumpSpeed = jumpSpeed;
+		this.isJumping = false;
+		this.weight = weight;
 	}
 
 	public void init(GameContainer gc) throws SlickException {
@@ -27,21 +29,19 @@ public class MovableEntity extends Entity {
 		super.update(gc, delta);
 		if (sideSpeed != 0f)
 			moveForward(delta, null);
-		if (isJumping) {
-			Entity tmpe = jumpUp(delta);
 
-			if (tmpe == null) //Didn't collide with anything
-				jumpSpeed += CConstants.GRAVITY;
-			//else if (tmpe instanceof Ground) //Collided with ceiling or object -- will be implemented
-			else if(tmpe.equals(MainGameState.fakeentity)) {
-				if (jumpSpeed > 0) {
-					isJumping = false;
-					jumpSpeed = CConstants.PLAYER_JUMP_SPEED;
-				} else
-					jumpSpeed = Math.abs(jumpSpeed);
-			}
+		Entity tmpe = jumpUp(delta);
 
+		if (tmpe == null) //Didn't collide with anything
+			jumpSpeed += CConstants.GRAVITY * weight;
+		else if (tmpe instanceof Ground) { //Collided with ceiling or object -- will be implemented
+			if (jumpSpeed > 0) {
+				jumpSpeed = CConstants.PLAYER_JUMP_SPEED;
+				isJumping = false;
+			} else
+				jumpSpeed = Math.abs(jumpSpeed);
 		}
+
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException {

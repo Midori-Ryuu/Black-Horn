@@ -24,7 +24,7 @@ public class MainGame extends StateBasedGame {
 
 	public static void main(String[] args) throws SlickException {
 		AppGameContainer app = new AppGameContainer(new MainGame());
-		// app.setMinimumLogicUpdateInterval(16);
+		//app.setMinimumLogicUpdateInterval(16);
 		app.setMaximumLogicUpdateInterval(1);
 		app.setAlwaysRender(true);
 		app.setDisplayMode(800, 640, false); // window size

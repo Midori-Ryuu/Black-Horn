@@ -17,6 +17,7 @@ public final class CConstants {
 
 	//Gravity constants
 	public static final float GRAVITY = 0.0003f;
+	public static final float PLAYER_WEIGHT = 1f;
 
 	//Rotation constants
 	public static final float ROTATION_RIGHT = 90f;

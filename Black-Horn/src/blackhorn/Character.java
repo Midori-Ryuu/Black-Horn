@@ -7,8 +7,8 @@ public class Character extends MovableEntity {
 	private float damage;
 	private float attackSpeed;
 
-	public Character(float x, float y, float health, float armor, float damage, float attackSpeed, float sideSpeed, float rotation) {
-		super(x, y, sideSpeed, rotation);
+	public Character(float x, float y, float health, float armor, float damage, float attackSpeed, float sideSpeed, float rotation, float jumpSpeed, float weight) {
+		super(x, y, sideSpeed, rotation, jumpSpeed, weight);
 
 		this.health = health;
 		this.armor=armor;
