@@ -8,12 +8,11 @@ public final class CConstants {
 	public static final float PLAYER_SPEED_STOPPING = CConstants.GLOBAL_SPEED_FACTOR * 0.002f;
 	public static final float PLAYER_JUMP_SPEED = CConstants.GLOBAL_SPEED_FACTOR * 0.2f;
 	public static final float BULLET_SPEED = GLOBAL_SPEED_FACTOR * 0.3f;
-	
+
 	//Distance constants
 	public static final float GLOBAL_DISTANCE_FACTOR = 1f;
 	public static final float NORMAL_DISTANCE = CConstants.GLOBAL_DISTANCE_FACTOR * 1f;
 	public static final float CLOSE_DISTANCE = CConstants.GLOBAL_DISTANCE_FACTOR * 0.1f;
-	
 
 	//Gravity constants
 	public static final float GRAVITY = 0.0003f;

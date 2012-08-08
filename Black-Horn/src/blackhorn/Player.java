@@ -44,26 +44,29 @@ public class Player extends Character {
 
 	@Override
 	public void groundCollision(Ground ground) {
-		// TODO Auto-generated method stub
-		
+		if (this.getJumpSpeed() > 0) {
+			this.setJumpSpeed(CConstants.PLAYER_JUMP_SPEED);
+			this.setJumping(false);
+		} else
+			this.setJumpSpeed(Math.abs(this.getJumpSpeed()));
+
 	}
 
 	@Override
 	public void playerCollision(Player player) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void enemyCollision(Enemy enemy) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void doCollision(MovableEntity moveableEntity) {
-		
-		
+
 	}
 
 }

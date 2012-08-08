@@ -10,7 +10,7 @@ public abstract class MovableEntity extends Entity {
 	private float jumpSpeed;
 	private float weight;
 	private boolean isJumping;
-	
+
 	public MovableEntity(float x, float y, float sideSpeed, float rotation, float jumpSpeed, float weight) {
 
 		super(x, y, rotation);
@@ -31,7 +31,6 @@ public abstract class MovableEntity extends Entity {
 			moveForward(delta, null);
 
 		jumpUp(delta);
-
 
 	}
 
@@ -54,7 +53,7 @@ public abstract class MovableEntity extends Entity {
 		float speed = sideSpeed * (float) delta;
 		float tmpx = this.getX() + speed;
 		detectCollision(tmpx, this.getY(), ignored);
-	//	return detectCollision(tmpx, this.getY(), ignored);
+		//	return detectCollision(tmpx, this.getY(), ignored);
 	}
 
 	public void jumpUp(int delta) {
@@ -62,34 +61,35 @@ public abstract class MovableEntity extends Entity {
 		float speed = jumpSpeed * (float) delta;
 		float tmpy = this.getY() + speed;
 		detectCollision(this.getX(), tmpy, null);
-	//	return detectCollision(this.getX(), tmpy, null);
+		//	return detectCollision(this.getX(), tmpy, null);
 	}
-	
+
 	public int detectCollision(float tmpx, float tmpy, Entity ignored) {
 
 		for (int i = 0; i < MainGameState.objectList.size(); i++) {
 			if ((!this.equals(MainGameState.objectList.get(i))) && (!MainGameState.objectList.get(i).equals(ignored)))
-				if (this.getRectangle(tmpx, tmpy).intersects(MainGameState.objectList.get(i).getRectangle()))
-				{
+				if (this.getRectangle(tmpx, tmpy).intersects(MainGameState.objectList.get(i).getRectangle())) {
 					MainGameState.objectList.get(i).doCollision(this);
-					return 1; 
+					return 0;
 				}
-					
+
 		}
 
 		if ((tmpx > 0 && tmpx < 4600) && (tmpy > 0 && tmpy < 3000)) { //Within map bounds
 			this.setX(tmpx);
 			this.setY(tmpy);
-			return 2;
+			jumpSpeed += CConstants.GRAVITY * weight;
+			return 1;
 		}
 
-		return 3;
+		MainGameState.objectListRemove.add(this);
+		return 2;
 	}
-	
+
 	public abstract void groundCollision(Ground ground);
-	
+
 	public abstract void playerCollision(Player player);
-	
+
 	public abstract void enemyCollision(Enemy enemy);
 
 	public float getJumpSpeed() {
@@ -107,7 +107,5 @@ public abstract class MovableEntity extends Entity {
 	public void setJumping(boolean isJumping) {
 		this.isJumping = isJumping;
 	}
-
-	
 
 }

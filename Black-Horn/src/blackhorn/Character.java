@@ -11,9 +11,9 @@ public abstract class Character extends MovableEntity {
 		super(x, y, sideSpeed, rotation, jumpSpeed, weight);
 
 		this.health = health;
-		this.armor=armor;
-		this.damage=damage;
-		this.attackSpeed=attackSpeed;
+		this.armor = armor;
+		this.damage = damage;
+		this.attackSpeed = attackSpeed;
 	}
 
 	public void takeDamage(int damage) {
@@ -23,9 +23,7 @@ public abstract class Character extends MovableEntity {
 			MainGameState.objectListRemove.add(this); // if player is dead remove from list
 		}
 	}
-	
-	
-	
+
 	public float getDamage() {
 		return damage;
 	}
@@ -50,9 +48,4 @@ public abstract class Character extends MovableEntity {
 		this.attackSpeed = attackspeed;
 	}
 
-	
-
-	
-
-	
 }

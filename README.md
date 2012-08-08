@@ -1,4 +1,4 @@
 Black-Horn
 ==========
 
-Generic 2d side-scrolling shooter
+Generic 2d side-scrolling shooter!!

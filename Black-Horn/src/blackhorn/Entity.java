@@ -12,7 +12,7 @@ public abstract class Entity {
 	private float x, y;
 	private float rotation;
 
-	Entity(float x, float y,float rotation) {
+	Entity(float x, float y, float rotation) {
 		this.x = x;
 		this.y = y;
 		this.rotation = rotation;
@@ -29,7 +29,7 @@ public abstract class Entity {
 	}
 
 	public abstract void doCollision(MovableEntity movableEntity);
-	
+
 	public Rectangle getRectangle() {
 		return new Rectangle(this.x, this.y, this.texture.getWidth(), this.texture.getHeight());
 	}
