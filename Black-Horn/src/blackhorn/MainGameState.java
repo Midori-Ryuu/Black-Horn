@@ -45,7 +45,7 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		 */
 		ground1 = new Ground(605, 2800, 0f);
 		ground2 = new Ground(1500, 2850, 0f);
-		fakeentity = new MovableEntity(0, 0, 0, 0, 0, 0);
+		//fakeentity = new fakeentity(0, 0, 0, 0, 0, 0);
 		// list of players and non-player spawned objects
 		objectList = new ArrayList<Entity>();
 

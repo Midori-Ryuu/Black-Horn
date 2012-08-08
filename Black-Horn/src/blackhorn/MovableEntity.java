@@ -4,7 +4,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
-public class MovableEntity extends Entity {
+public abstract class MovableEntity extends Entity {
 
 	private float sideSpeed;
 	private float jumpSpeed;
@@ -30,17 +30,8 @@ public class MovableEntity extends Entity {
 		if (sideSpeed != 0f)
 			moveForward(delta, null);
 
-		Entity tmpe = jumpUp(delta);
+		jumpUp(delta);
 
-		if (tmpe == null) //Didn't collide with anything
-			jumpSpeed += CConstants.GRAVITY * weight;
-		else if (tmpe instanceof Ground) { //Collided with ceiling or object -- will be implemented
-			if (jumpSpeed > 0) {
-				jumpSpeed = CConstants.PLAYER_JUMP_SPEED;
-				isJumping = false;
-			} else
-				jumpSpeed = Math.abs(jumpSpeed);
-		}
 
 	}
 
@@ -56,21 +47,50 @@ public class MovableEntity extends Entity {
 		return sideSpeed;
 	}
 
-	public Entity moveForward(int delta, Entity ignored) { //ignored is used by projectiles to ignore the firing source 
+	public void moveForward(int delta, Entity ignored) { //ignored is used by projectiles to ignore the firing source 
 
 		this.setRotation(Math.abs(this.getRotation()) * Math.signum(sideSpeed));
 		this.getTexture().setRotation(this.getRotation());
 		float speed = sideSpeed * (float) delta;
 		float tmpx = this.getX() + speed;
-		return detectCollision(tmpx, this.getY(), ignored);
+		detectCollision(tmpx, this.getY(), ignored);
+	//	return detectCollision(tmpx, this.getY(), ignored);
 	}
 
-	public Entity jumpUp(int delta) {
+	public void jumpUp(int delta) {
 
 		float speed = jumpSpeed * (float) delta;
 		float tmpy = this.getY() + speed;
-		return detectCollision(this.getX(), tmpy, null);
+		detectCollision(this.getX(), tmpy, null);
+	//	return detectCollision(this.getX(), tmpy, null);
 	}
+	
+	public int detectCollision(float tmpx, float tmpy, Entity ignored) {
+
+		for (int i = 0; i < MainGameState.objectList.size(); i++) {
+			if ((!this.equals(MainGameState.objectList.get(i))) && (!MainGameState.objectList.get(i).equals(ignored)))
+				if (this.getRectangle(tmpx, tmpy).intersects(MainGameState.objectList.get(i).getRectangle()))
+				{
+					MainGameState.objectList.get(i).doCollision(this);
+					return 1; 
+				}
+					
+		}
+
+		if ((tmpx > 0 && tmpx < 4600) && (tmpy > 0 && tmpy < 3000)) { //Within map bounds
+			this.setX(tmpx);
+			this.setY(tmpy);
+			return 2;
+		}
+
+		return 3;
+	}
+	
+	public abstract void groundCollision(Ground ground);
+	
+	public abstract void playerCollision(Player player);
+	
+	public abstract void enemyCollision(Enemy enemy);
 
 	public float getJumpSpeed() {
 		return jumpSpeed;
@@ -87,5 +107,7 @@ public class MovableEntity extends Entity {
 	public void setJumping(boolean isJumping) {
 		this.isJumping = isJumping;
 	}
+
+	
 
 }

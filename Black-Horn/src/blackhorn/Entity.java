@@ -6,7 +6,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
-public class Entity {
+public abstract class Entity {
 
 	private Image texture;
 	private float x, y;
@@ -28,23 +28,8 @@ public class Entity {
 		texture.draw(x, y);
 	}
 
-	public Entity detectCollision(float tmpx, float tmpy, Entity ignored) {
-
-		for (int i = 0; i < MainGameState.objectList.size(); i++) {
-			if ((!this.equals(MainGameState.objectList.get(i))) && (!MainGameState.objectList.get(i).equals(ignored)))
-				if (this.getRectangle(tmpx, tmpy).intersects(MainGameState.objectList.get(i).getRectangle()))
-					return MainGameState.objectList.get(i);
-		}
-
-		if ((tmpx > 0 && tmpx < 4600) && (tmpy > 0 && tmpy < 3000)) { //Within map bounds
-			this.setX(tmpx);
-			this.setY(tmpy);
-			return null;
-		}
-
-		return MainGameState.fakeentity;
-	}
-
+	public abstract void doCollision(MovableEntity movableEntity);
+	
 	public Rectangle getRectangle() {
 		return new Rectangle(this.x, this.y, this.texture.getWidth(), this.texture.getHeight());
 	}

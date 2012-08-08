@@ -1,6 +1,6 @@
 package blackhorn;
 
-public class Character extends MovableEntity {
+public abstract class Character extends MovableEntity {
 
 	private float health;
 	private float armor;
@@ -23,7 +23,9 @@ public class Character extends MovableEntity {
 			MainGameState.objectListRemove.add(this); // if player is dead remove from list
 		}
 	}
-
+	
+	
+	
 	public float getDamage() {
 		return damage;
 	}
@@ -47,4 +49,10 @@ public class Character extends MovableEntity {
 	public void setAttackspeed(float attackspeed) {
 		this.attackSpeed = attackspeed;
 	}
+
+	
+
+	
+
+	
 }

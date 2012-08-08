@@ -21,28 +21,34 @@ public class Bullet extends MovableEntity {
 
 	public void update(GameContainer container, int delta) throws SlickException {
 		super.update(container, delta);
-		Entity tmpe = this.moveForward(delta, firingPlayer);
-		
-		if (tmpe == null) // bullet didn't collide with anything
-			return;
-
-		if (tmpe.equals(MainGameState.fakeentity)) { // bullet reached end of map add in to remove list
-			MainGameState.objectListRemove.add(this);
-			return;
-		}
-		
-		if (tmpe instanceof Ground)
-			MainGameState.objectListRemove.add(this);
-		
-		if(tmpe instanceof Character)
-		{
-			((Character) tmpe).takeDamage(5); // bullet collided with a character
-			MainGameState.objectListRemove.add(this); // add in to remove list
-		}
-		
+		moveForward(delta, firingPlayer);	
 	}
 
 	public void render(GameContainer container, Graphics g) throws SlickException {
 		super.render(container, g);
+	}
+
+	@Override
+	public void groundCollision(Ground ground) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void playerCollision(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void enemyCollision(Enemy enemy) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void doCollision(MovableEntity movableEntity) {
+		// TODO Auto-generated method stub
+		
 	}
 }

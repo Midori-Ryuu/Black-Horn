@@ -42,4 +42,28 @@ public class Player extends Character {
 		this.setAttackspeed(attackspeed);
 	}
 
+	@Override
+	public void groundCollision(Ground ground) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void playerCollision(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void enemyCollision(Enemy enemy) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void doCollision(MovableEntity moveableEntity) {
+		
+		
+	}
+
 }

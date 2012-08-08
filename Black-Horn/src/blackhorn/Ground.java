@@ -18,4 +18,10 @@ public class Ground extends Entity {
 
 	}
 
+	@Override
+	public void doCollision(MovableEntity entity) {
+		entity.groundCollision(this);
+		
+	}
+
 }
