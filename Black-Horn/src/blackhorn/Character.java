@@ -48,4 +48,10 @@ public abstract class Character extends MovableEntity {
 		this.attackSpeed = attackspeed;
 	}
 
+	public void bulletCollision(Bullet bullet) {
+		MainGameState.objectListRemove.add(this);
+		MainGameState.objectListRemove.add(bullet);
+
+	}
+
 }

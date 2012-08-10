@@ -3,6 +3,7 @@ package blackhorn;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
 
 public abstract class MovableEntity extends Entity {
 
@@ -28,7 +29,7 @@ public abstract class MovableEntity extends Entity {
 	public void update(GameContainer gc, int delta) throws SlickException {
 		super.update(gc, delta);
 		if (sideSpeed != 0f)
-			moveForward(delta, null);
+			moveForward(delta);
 
 		jumpUp(delta);
 
@@ -46,29 +47,31 @@ public abstract class MovableEntity extends Entity {
 		return sideSpeed;
 	}
 
-	public void moveForward(int delta, Entity ignored) { //ignored is used by projectiles to ignore the firing source 
+	public void moveForward(int delta) { //ignored is used by projectiles to ignore the firing source
 
 		this.setRotation(Math.abs(this.getRotation()) * Math.signum(sideSpeed));
 		this.getTexture().setRotation(this.getRotation());
 		float speed = sideSpeed * (float) delta;
 		float tmpx = this.getX() + speed;
-		detectCollision(tmpx, this.getY(), ignored);
-		//	return detectCollision(tmpx, this.getY(), ignored);
+		detectCollision(tmpx, this.getY());
+		// return detectCollision(tmpx, this.getY(), ignored);
 	}
 
 	public void jumpUp(int delta) {
 
 		float speed = jumpSpeed * (float) delta;
 		float tmpy = this.getY() + speed;
-		detectCollision(this.getX(), tmpy, null);
-		//	return detectCollision(this.getX(), tmpy, null);
+		detectCollision(this.getX(), tmpy);
+		// return detectCollision(this.getX(), tmpy, null);
 	}
 
-	public int detectCollision(float tmpx, float tmpy, Entity ignored) {
+	public int detectCollision(float tmpx, float tmpy) {
 
+		Rectangle tmpRect = this.getRectangle(tmpx,tmpy);
+		
 		for (int i = 0; i < MainGameState.objectList.size(); i++) {
-			if ((!this.equals(MainGameState.objectList.get(i))) && (!MainGameState.objectList.get(i).equals(ignored)))
-				if (this.getRectangle(tmpx, tmpy).intersects(MainGameState.objectList.get(i).getRectangle())) {
+			if (!this.equals(MainGameState.objectList.get(i)))
+				if (tmpRect.intersects(MainGameState.objectList.get(i).getRectangle())) {
 					MainGameState.objectList.get(i).doCollision(this);
 					return 0;
 				}
@@ -91,6 +94,8 @@ public abstract class MovableEntity extends Entity {
 	public abstract void playerCollision(Player player);
 
 	public abstract void enemyCollision(Enemy enemy);
+
+	public abstract void bulletCollision(Bullet bullet);
 
 	public float getJumpSpeed() {
 		return jumpSpeed;

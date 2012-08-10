@@ -20,12 +20,11 @@ public class Player extends Character {
 
 	public void update(GameContainer container, int delta) throws SlickException {
 		super.update(container, delta);
-
 	}
 
 	public void fireWeapon(GameContainer gc) {
 
-		Bullet bullet = new Bullet(this.getRectangle().getCenterX(), this.getRectangle().getCenterY(), this); // spawn a bullet in front of player
+		Bullet bullet = new Bullet(this.getRectangle().getCenterX()+Math.signum(this.getRotation())*(this.getRectangle().getWidth()/2+5.5f), this.getRectangle().getCenterY(), this); // spawn a bullet in front of player
 		try {
 			bullet.init(gc);
 		} catch (SlickException e) {

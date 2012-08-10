@@ -42,4 +42,10 @@ public class Enemy extends Character {
 		// TODO Auto-generated method stub
 
 	}
+
+	public void bulletCollision(Bullet bullet) {
+		MainGameState.objectListRemove.add(this);
+		MainGameState.objectListRemove.add(bullet);
+
+	}
 }

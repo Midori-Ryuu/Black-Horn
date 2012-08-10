@@ -21,7 +21,7 @@ public class Bullet extends MovableEntity {
 
 	public void update(GameContainer container, int delta) throws SlickException {
 		super.update(container, delta);
-		moveForward(delta, firingPlayer);
+
 	}
 
 	public void render(GameContainer container, Graphics g) throws SlickException {
@@ -43,13 +43,19 @@ public class Bullet extends MovableEntity {
 
 	@Override
 	public void enemyCollision(Enemy enemy) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void doCollision(MovableEntity movableEntity) {
-		// TODO Auto-generated method stub
+		movableEntity.bulletCollision(this);
+
+	}
+
+	@Override
+	public void bulletCollision(Bullet bullet) {
+
+		MainGameState.objectListRemove.add(this);
 
 	}
 }

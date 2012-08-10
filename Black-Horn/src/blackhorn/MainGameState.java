@@ -12,12 +12,11 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 	int stateID;
 	Nifty nifty;
 	Image map = null;
-	/*
-	 * Enemy monster1 = null; Enemy monster2 = null; Enemy monster3 = null;
-	 * Enemy monster4 = null; Debris debris1 = null; Debris debris2 = null;
-	 * Debris debris3 = null; Debris debris4 = null; Debris debris5 = null;
-	 * Debris debris6 = null;
-	 */
+
+	Enemy monster1 = null;
+	Enemy monster2 = null;
+	Enemy monster3 = null;
+	Enemy monster4 = null;
 
 	Ground ground1 = null;
 	Ground ground2 = null;
@@ -35,14 +34,12 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		super();
 		this.stateID = stateID;
 		MainGame.player = new Player(1655, 2655);
-		/*
-		 * monster1 = new Enemy(1400, 1400); monster2 = new Enemy(1300, 1300);
-		 * monster3 = new Enemy(1700, 1700); monster4 = new Enemy(2000, 2000);
-		 * 
-		 * debris1 = new Debris(1100, 1000); debris2 = new Debris(2200, 2200);
-		 * debris3 = new Debris(1500, 1500); debris4 = new Debris(600, 600);
-		 * debris5 = new Debris(3100, 1000); debris6 = new Debris(1700, 1200);
-		 */
+
+		monster1 = new Enemy(1400, 1400, 0);
+		monster2 = new Enemy(1300, 1300, 0);
+		monster3 = new Enemy(1700, 1700, 0);
+		monster4 = new Enemy(2000, 2000, 0);
+
 		ground1 = new Ground(605, 2800, 0f);
 		ground2 = new Ground(1500, 2850, 0f);
 		//fakeentity = new fakeentity(0, 0, 0, 0, 0, 0);
@@ -61,16 +58,19 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		terrainObjectList = new ArrayList<Entity>();
 
 		objectList.add(MainGame.player);
-		objectList.add(ground1);
-		objectList.add(ground2);
-
-		/*
-		 * objectList.add(monster1); objectList.add(monster2);
-		 * objectList.add(monster3); objectList.add(monster4);
-		 * terrainObjectList.add(debris1); terrainObjectList.add(debris2);
-		 * terrainObjectList.add(debris3); terrainObjectList.add(debris4);
-		 * terrainObjectList.add(debris5); terrainObjectList.add(debris6);
-		 */
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+	
+		
+		objectList.add(new Ground(1155, 2800, 0f));
+		objectList.add(new Ground(1500, 2850, 0f));
 
 	}
 
@@ -94,7 +94,7 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 
 		for (int i = 0; i < terrainObjectList.size(); i++)
 			terrainObjectList.get(i).init(container);
-
+		
 		initNifty(container, game, MainGame.myInputSystem);
 		// initNifty(container, game);
 	}
