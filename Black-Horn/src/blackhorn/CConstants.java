@@ -15,7 +15,7 @@ public final class CConstants {
 	public static final float CLOSE_DISTANCE = CConstants.GLOBAL_DISTANCE_FACTOR * 0.1f;
 
 	//Gravity constants
-	public static final float GRAVITY = 0.0003f;
+	public static final float GRAVITY = 0.003f;
 	public static final float PLAYER_WEIGHT = 1f;
 
 	//Rotation constants

@@ -27,7 +27,8 @@ public class MainGame extends StateBasedGame {
 		app.setMinimumLogicUpdateInterval(35);
 		app.setMaximumLogicUpdateInterval(15);
 		app.setAlwaysRender(true);
-		app.setDisplayMode(800, 640, false); // window size
+		app.setVSync(true);
+		app.setDisplayMode(1920, 1080, true); // window size
 		app.start();
 	}
 

@@ -26,22 +26,15 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 	public static ArrayList<Entity> objectListRemove;
 	public static ArrayList<Entity> playerObjectListRemove;
 	public static ArrayList<Entity> terrainObjectList;
-	int i=0;
+	int i = 0;
 	public static Entity fakeentity;
 
 	public MainGameState(int stateID) {
 
 		super();
 		this.stateID = stateID;
-		MainGame.player = new Player(1655, 2655);
-		
-		monster1 = new Enemy(1400, 1400, 0);
-		monster2 = new Enemy(1300, 1300, 0);
-		monster3 = new Enemy(1700, 1700, 0);
-		monster4 = new Enemy(2000, 2000, 0);
+		MainGame.player = new Player(1755, 2400);
 
-		ground1 = new Ground(605, 2800, 0f);
-		ground2 = new Ground(1500, 2850, 0f);
 		//fakeentity = new fakeentity(0, 0, 0, 0, 0, 0);
 		// list of players and non-player spawned objects
 		objectList = new ArrayList<Entity>();
@@ -165,7 +158,6 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
-		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
@@ -218,7 +210,6 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
-		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
@@ -326,16 +317,19 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
-		objectList.add(new Enemy(1255, 2700,9));
-		objectList.add(new Ground(400, 2800, 0f));
-		objectList.add(new Ground(750, 2850, 0f));
-		
-		objectList.add(new Ground(1155, 2800, 0f));
-		objectList.add(new Ground(1500, 2850, 0f));
-	
-	
-		objectList.add(new Ground(1800, 2850, 0f));
-	//	objectList.add(new Ground(2055, 2800, 0f));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add((Entity) new Enemy(1255, 2300, 9));
+		objectList.add(new Ground(400, 2450, 0f));
+		objectList.add(new Ground(750, 2500, 0f));
+
+		objectList.add(new Ground(1155, 2450, 0f));
+		objectList.add(new Ground(1500, 2500, 0f));
+
+		objectList.add(new Ground(1800, 2500, 0f));
+		//	objectList.add(new Ground(2055, 2800, 0f));
 
 	}
 
@@ -352,14 +346,14 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 	@Override
 	protected void initGameAndGUI(GameContainer container, StateBasedGame game) throws SlickException {
 
-		map = new Image("/data/rocks.png");
+		map = new Image("/data/moon.jpg");
 
 		for (int i = 0; i < objectList.size(); i++)
 			objectList.get(i).init(container);
 
 		for (int i = 0; i < terrainObjectList.size(); i++)
 			terrainObjectList.get(i).init(container);
-		
+
 		initNifty(container, game, MainGame.myInputSystem);
 		// initNifty(container, game);
 	}
@@ -385,9 +379,9 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		graphics.translate(-MainGame.player.getX() - MainGame.player.getTexture().getHeight() / 2f + (float) container.getWidth() / 2f, -MainGame.player.getY()
 				- MainGame.player.getTexture().getWidth() / 2f + (float) container.getHeight() / 2f);
 
-		for (int i = 0; i < 36; i++)
-			for (int j = 0; j < 24; j++)
-				map.draw(i * 128, j * 128);
+		for (int i = 0; i < 5; i++)
+			for (int j = 0; j < 5; j++)
+				map.draw(i * 2048, j * 1536);
 
 		for (int i = 0; i < objectList.size(); i++)
 			// draw all characters
@@ -408,20 +402,20 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 
 	@Override
 	protected void updateGame(GameContainer container, StateBasedGame game, int delta) throws SlickException {
-		
+
 		for (int i = 0; i < objectList.size(); i++)
 			// update all objects
 			objectList.get(i).update(container, delta);
 
-	//	for (int i = 0; i < playerObjectList.size(); i++)
-			// update bullets, etc...
-	//		playerObjectList.get(i).update(container, delta);
+		//	for (int i = 0; i < playerObjectList.size(); i++)
+		// update bullets, etc...
+		//		playerObjectList.get(i).update(container, delta);
 
-	//	for (int i = 0; i < terrainObjectList.size(); i++)
-	//		terrainObjectList.get(i).update(container, delta);
+		//	for (int i = 0; i < terrainObjectList.size(); i++)
+		//		terrainObjectList.get(i).update(container, delta);
 
 		objectList.removeAll(objectListRemove); // removes all collided objects (bullets, grenades)
-//		playerObjectList.removeAll(playerObjectListRemove); // removes all collided objects (bullets, grenades)
+		//		playerObjectList.removeAll(playerObjectListRemove); // removes all collided objects (bullets, grenades)
 	}
 
 }

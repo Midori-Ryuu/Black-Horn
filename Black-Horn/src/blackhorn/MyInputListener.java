@@ -76,8 +76,10 @@ public class MyInputListener implements InputListener {
 			break;
 
 		case Input.KEY_SPACE:
-		//	if (!MainGame.player.isJumping())
+			//	if (!MainGame.player.isJumping())
+			if (!MainGame.player.hasFired())
 				MainGame.player.fireWeapon(MainGame.container);
+			MainGame.player.setHasFired(true);
 			break;
 
 		case Input.KEY_ESCAPE:
@@ -98,6 +100,8 @@ public class MyInputListener implements InputListener {
 			MainGame.player.setSideSpeed(0f);
 		else if (key == Input.KEY_LEFT)
 			MainGame.player.setSideSpeed(0f);
+		else if (key == Input.KEY_SPACE)
+			MainGame.player.setHasFired(false);
 	}
 
 	@Override

@@ -12,10 +12,10 @@ public class Ground extends Entity {
 	}
 
 	public void init(GameContainer container) throws SlickException {
-		super.init(container);
-		this.setTexture(new Image("/data/selection tool.png"));
-		this.getTexture().setRotation(this.getRotation());
 
+		this.setTexture(new Image("/data/rocks2.png"));
+		this.getTexture().setRotation(this.getRotation());
+		super.init(container);
 	}
 
 	@Override

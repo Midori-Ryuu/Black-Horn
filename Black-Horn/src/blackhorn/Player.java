@@ -6,16 +6,17 @@ import org.newdawn.slick.SlickException;
 
 public class Player extends Character {
 
+	private boolean hasFired = false;
+
 	public Player(float x, float y) {
 		super(x, y, 1, 1, 1, 1, 0, CConstants.ROTATION_RIGHT, CConstants.PLAYER_JUMP_SPEED, CConstants.PLAYER_WEIGHT);
 
 	}
 
 	public void init(GameContainer container) throws SlickException {
-		super.init(container);
-		this.setTexture(new Image("/data/valyrie.png"));
+		this.setTexture(new Image("/data/player1.png"));
 		this.getTexture().setRotation(this.getRotation());
-
+		super.init(container);
 	}
 
 	public void update(GameContainer container, int delta) throws SlickException {
@@ -24,7 +25,7 @@ public class Player extends Character {
 
 	public void fireWeapon(GameContainer gc) {
 
-		Bullet bullet = new Bullet(this.getRectangle().getCenterX() + Math.signum(this.getRotation()) * (this.getRectangle().getWidth() / 2 + 5.5f), this.getRectangle()
+		Bullet bullet = new Bullet(this.getRectangle().getCenterX() + Math.signum(this.getRotation()) * (this.getRectangle().getWidth() / 2 + 15.5f), this.getRectangle()
 				.getCenterY(), this); // spawn a bullet in front of player
 		try {
 			bullet.init(gc);
@@ -67,6 +68,14 @@ public class Player extends Character {
 	@Override
 	public void doCollision(MovableEntity moveableEntity) {
 
+	}
+
+	public boolean hasFired() {
+		return hasFired;
+	}
+
+	public void setHasFired(boolean hasFired) {
+		this.hasFired = hasFired;
 	}
 
 }

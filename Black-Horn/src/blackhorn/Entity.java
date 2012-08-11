@@ -17,11 +17,11 @@ public abstract class Entity {
 		this.x = x;
 		this.y = y;
 		this.rotation = rotation;
-		rectangle = new Rectangle(x, y, 100, 100);
 
 	}
 
 	public void init(GameContainer gc) throws SlickException {
+		rectangle = new Rectangle(x, y, this.getTexture().getWidth(), this.getTexture().getHeight());
 	}
 
 	public void update(GameContainer gc, int delta) throws SlickException {
@@ -36,8 +36,8 @@ public abstract class Entity {
 	public Rectangle getRectangle() {
 		//return new Rectangle(this.x, this.y, this.texture.getWidth(), this.texture.getHeight());
 		//if (texture != null)
-			
-			//rectangle.setBounds(x, y, this.texture.getWidth(), this.texture.getHeight());
+
+		//rectangle.setBounds(x, y, this.texture.getWidth(), this.texture.getHeight());
 		rectangle.setX(x);
 		rectangle.setY(y);
 		return rectangle;
@@ -46,11 +46,11 @@ public abstract class Entity {
 	public Rectangle getRectangle(float tmpx, float tmpy) {
 		//return new Rectangle(tmpx, tmpy, this.texture.getWidth(), this.texture.getHeight());
 		//if (texture != null)
-			//rectangle.setBounds(tmpx, tmpy, this.texture.getWidth(), this.texture.getHeight());
-		
+		//rectangle.setBounds(tmpx, tmpy, this.texture.getWidth(), this.texture.getHeight());
+
 		rectangle.setX(tmpx);
 		rectangle.setY(tmpy);
-			
+
 		return rectangle;
 	}
 

@@ -11,12 +11,12 @@ public class Bullet extends MovableEntity {
 
 	Bullet(float x, float y, Entity firingPlayer) {
 		super(x, y, Math.signum(firingPlayer.getRotation()) * CConstants.BULLET_SPEED, firingPlayer.getRotation(), 0, 0);
-		this.firingPlayer = firingPlayer;
+		this.setFiringPlayer(firingPlayer);
 	}
 
 	public void init(GameContainer container) throws SlickException {
-		super.init(container);
 		this.setTexture(new Image("/data/bullet.png"));
+		super.init(container);
 	}
 
 	public void update(GameContainer container, int delta) throws SlickException {
@@ -43,11 +43,14 @@ public class Bullet extends MovableEntity {
 
 	@Override
 	public void enemyCollision(Enemy enemy) {
+		enemy.bulletCollision(this);
+		MainGameState.objectListRemove.add(this);
 
 	}
 
 	@Override
 	public void doCollision(MovableEntity movableEntity) {
+		MainGameState.objectListRemove.add(this);
 		movableEntity.bulletCollision(this);
 
 	}
@@ -57,5 +60,13 @@ public class Bullet extends MovableEntity {
 
 		MainGameState.objectListRemove.add(this);
 
+	}
+
+	public Entity getFiringPlayer() {
+		return firingPlayer;
+	}
+
+	public void setFiringPlayer(Entity firingPlayer) {
+		this.firingPlayer = firingPlayer;
 	}
 }

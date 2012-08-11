@@ -7,12 +7,13 @@ import org.newdawn.slick.SlickException;
 public class Enemy extends Character {
 
 	public Enemy(float x, float y, float weight) {
-		super(x, y, 1, 1, 1, 1, 0.00001f, 0, 0, 0.0000f);
+		super(x, y, 1, 1, 1, 1, 0.00001f, 0, 0, 0.1f);
 	}
 
 	public void init(GameContainer container) throws SlickException {
+
+		this.setTexture(new Image("/data/GrueBloodyGrin.png"));
 		super.init(container);
-		this.setTexture(new Image("/data/alpha.png"));
 	}
 
 	public void update(GameContainer container, int delta) throws SlickException {
@@ -39,13 +40,9 @@ public class Enemy extends Character {
 
 	@Override
 	public void doCollision(MovableEntity movableEntity) {
+		movableEntity.enemyCollision(this);
 		// TODO Auto-generated method stub
 
 	}
 
-	public void bulletCollision(Bullet bullet) {
-		MainGameState.objectListRemove.add(this);
-		MainGameState.objectListRemove.add(bullet);
-
-	}
 }

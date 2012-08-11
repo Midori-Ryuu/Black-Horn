@@ -50,7 +50,10 @@ public abstract class MovableEntity extends Entity {
 	public void moveForward(int delta) { //ignored is used by projectiles to ignore the firing source
 
 		this.setRotation(Math.abs(this.getRotation()) * Math.signum(sideSpeed));
-		this.getTexture().setRotation(this.getRotation());
+		if(Math.signum(this.getRotation())>0)
+			this.getTexture().setRotation(this.getRotation());
+		else
+			this.getTexture().setRotation(this.getRotation());
 		float speed = sideSpeed * (float) delta;
 		float tmpx = this.getX() + speed;
 		detectCollision(tmpx, this.getY());
@@ -65,11 +68,11 @@ public abstract class MovableEntity extends Entity {
 
 	public int detectCollision(float tmpx, float tmpy) {
 
-		Rectangle tmpRect = this.getRectangle(tmpx,tmpy);
-		
-		if(tmpRect==null)
+		Rectangle tmpRect = this.getRectangle(tmpx, tmpy);
+
+		if (tmpRect == null)
 			return -1;
-		
+
 		for (int i = 0; i < MainGameState.objectList.size(); i++) {
 			if (!this.equals(MainGameState.objectList.get(i)))
 				if (tmpRect.intersects(MainGameState.objectList.get(i).getRectangle())) {
@@ -86,7 +89,7 @@ public abstract class MovableEntity extends Entity {
 			return 1;
 		}
 
-	//	MainGameState.objectListRemove.add(this);
+		//	MainGameState.objectListRemove.add(this);
 		return 2;
 	}
 
