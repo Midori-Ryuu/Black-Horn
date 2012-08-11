@@ -26,7 +26,7 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 	public static ArrayList<Entity> objectListRemove;
 	public static ArrayList<Entity> playerObjectListRemove;
 	public static ArrayList<Entity> terrainObjectList;
-
+	int i=0;
 	public static Entity fakeentity;
 
 	public MainGameState(int stateID) {
@@ -34,7 +34,7 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		super();
 		this.stateID = stateID;
 		MainGame.player = new Player(1655, 2655);
-
+		
 		monster1 = new Enemy(1400, 1400, 0);
 		monster2 = new Enemy(1300, 1300, 0);
 		monster3 = new Enemy(1700, 1700, 0);
@@ -67,10 +67,275 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
 		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
-	
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy((float) (Math.random() * 2000), (float) (Math.random() * 2000), 0));
+		objectList.add(new Enemy(1255, 2700,9));
+		objectList.add(new Ground(400, 2800, 0f));
+		objectList.add(new Ground(750, 2850, 0f));
 		
 		objectList.add(new Ground(1155, 2800, 0f));
 		objectList.add(new Ground(1500, 2850, 0f));
+	
+	
+		objectList.add(new Ground(1800, 2850, 0f));
+	//	objectList.add(new Ground(2055, 2800, 0f));
 
 	}
 
@@ -143,20 +408,20 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 
 	@Override
 	protected void updateGame(GameContainer container, StateBasedGame game, int delta) throws SlickException {
+		
 		for (int i = 0; i < objectList.size(); i++)
 			// update all objects
 			objectList.get(i).update(container, delta);
 
-		for (int i = 0; i < playerObjectList.size(); i++)
+	//	for (int i = 0; i < playerObjectList.size(); i++)
 			// update bullets, etc...
-			playerObjectList.get(i).update(container, delta);
+	//		playerObjectList.get(i).update(container, delta);
 
-		for (int i = 0; i < terrainObjectList.size(); i++)
-			terrainObjectList.get(i).update(container, delta);
+	//	for (int i = 0; i < terrainObjectList.size(); i++)
+	//		terrainObjectList.get(i).update(container, delta);
 
 		objectList.removeAll(objectListRemove); // removes all collided objects (bullets, grenades)
-		playerObjectList.removeAll(playerObjectListRemove); // removes all collided objects (bullets, grenades)
-
+//		playerObjectList.removeAll(playerObjectListRemove); // removes all collided objects (bullets, grenades)
 	}
 
 }

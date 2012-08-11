@@ -24,7 +24,8 @@ public class Player extends Character {
 
 	public void fireWeapon(GameContainer gc) {
 
-		Bullet bullet = new Bullet(this.getRectangle().getCenterX()+Math.signum(this.getRotation())*(this.getRectangle().getWidth()/2+5.5f), this.getRectangle().getCenterY(), this); // spawn a bullet in front of player
+		Bullet bullet = new Bullet(this.getRectangle().getCenterX() + Math.signum(this.getRotation()) * (this.getRectangle().getWidth() / 2 + 5.5f), this.getRectangle()
+				.getCenterY(), this); // spawn a bullet in front of player
 		try {
 			bullet.init(gc);
 		} catch (SlickException e) {
@@ -43,11 +44,11 @@ public class Player extends Character {
 
 	@Override
 	public void groundCollision(Ground ground) {
-		if (this.getJumpSpeed() > 0) {
+		if (this.getJumpSpeed() > 0) { //If player hit a ceiling
 			this.setJumpSpeed(CConstants.PLAYER_JUMP_SPEED);
 			this.setJumping(false);
 		} else
-			this.setJumpSpeed(Math.abs(this.getJumpSpeed()));
+			this.setJumpSpeed(Math.abs(this.getJumpSpeed())); //If player landed on the ground
 
 	}
 

@@ -54,7 +54,6 @@ public abstract class MovableEntity extends Entity {
 		float speed = sideSpeed * (float) delta;
 		float tmpx = this.getX() + speed;
 		detectCollision(tmpx, this.getY());
-		// return detectCollision(tmpx, this.getY(), ignored);
 	}
 
 	public void jumpUp(int delta) {
@@ -62,12 +61,14 @@ public abstract class MovableEntity extends Entity {
 		float speed = jumpSpeed * (float) delta;
 		float tmpy = this.getY() + speed;
 		detectCollision(this.getX(), tmpy);
-		// return detectCollision(this.getX(), tmpy, null);
 	}
 
 	public int detectCollision(float tmpx, float tmpy) {
 
 		Rectangle tmpRect = this.getRectangle(tmpx,tmpy);
+		
+		if(tmpRect==null)
+			return -1;
 		
 		for (int i = 0; i < MainGameState.objectList.size(); i++) {
 			if (!this.equals(MainGameState.objectList.get(i)))
@@ -78,14 +79,14 @@ public abstract class MovableEntity extends Entity {
 
 		}
 
-		if ((tmpx > 0 && tmpx < 4600) && (tmpy > 0 && tmpy < 3000)) { //Within map bounds
+		if ((tmpx > 0 && tmpx < 3600) && (tmpy > 0 && tmpy < 3000)) { //Within map bounds
 			this.setX(tmpx);
 			this.setY(tmpy);
 			jumpSpeed += CConstants.GRAVITY * weight;
 			return 1;
 		}
 
-		MainGameState.objectListRemove.add(this);
+	//	MainGameState.objectListRemove.add(this);
 		return 2;
 	}
 
