@@ -28,7 +28,9 @@ public class MainGame extends StateBasedGame {
 		app.setMaximumLogicUpdateInterval(15);
 		app.setAlwaysRender(true);
 		app.setVSync(true);
-		app.setDisplayMode(1920, 1080, true); // window size
+		app.setDisplayMode(app.getScreenWidth(), app.getScreenHeight(), true); // window size
+		//app.setMultiSample(16);
+		app.setMouseGrabbed(true);
 		app.start();
 	}
 
@@ -38,8 +40,11 @@ public class MainGame extends StateBasedGame {
 		MainGame.myInputSystem = new SlickSlickInputSystem(myInputListener);
 		MainGame.game = this;
 		MainGame.container = container;
+		
+		
 		this.addState(new MainGameState(MAINGAMESTATE));
 		this.addState(new MainMenuState(MAINMENUSTATE));
-		this.enterState(MAINMENUSTATE);
+		//this.enterState(MAINMENUSTATE);
+		this.enterState(MAINGAMESTATE);
 	}
 }

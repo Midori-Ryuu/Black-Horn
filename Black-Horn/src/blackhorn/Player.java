@@ -1,7 +1,7 @@
 package blackhorn;
 
 import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Image;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
 public class Player extends Character {
@@ -14,13 +14,15 @@ public class Player extends Character {
 	}
 
 	public void init(GameContainer container) throws SlickException {
-		this.setTexture(new Image("/data/player1.png"));
-		this.getTexture().setRotation(this.getRotation());
 		super.init(container);
 	}
 
 	public void update(GameContainer container, int delta) throws SlickException {
 		super.update(container, delta);
+	}
+	
+	public void render(GameContainer gc, Graphics g) throws SlickException {
+		super.render(gc, g);
 	}
 
 	public void fireWeapon(GameContainer gc) {

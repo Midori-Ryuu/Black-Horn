@@ -1,5 +1,6 @@
 package blackhorn;
 
+import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -11,8 +12,9 @@ public abstract class Entity {
 	private Image texture;
 	private float x, y;
 	private float rotation;
-	Rectangle rectangle;
-
+	private Rectangle rectangle;
+	private Animation currentAnimation;
+	
 	Entity(float x, float y, float rotation) {
 		this.x = x;
 		this.y = y;
@@ -20,15 +22,17 @@ public abstract class Entity {
 
 	}
 
-	public void init(GameContainer gc) throws SlickException {
-		rectangle = new Rectangle(x, y, this.getTexture().getWidth(), this.getTexture().getHeight());
+	public void init(GameContainer gc) throws SlickException {	
+	  currentAnimation = MainGameState.animationList.getCurrentAnimation(this);
+	  rectangle = new Rectangle (this.getX(),this.getY(),currentAnimation.getCurrentFrame().getWidth(),currentAnimation.getCurrentFrame().getHeight());
 	}
 
 	public void update(GameContainer gc, int delta) throws SlickException {
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException {
-		texture.draw(x, y);
+		//texture.draw(x, y);
+		currentAnimation.draw(x, y); 
 	}
 
 	public abstract void doCollision(MovableEntity movableEntity);
@@ -84,6 +88,18 @@ public abstract class Entity {
 
 	public void setRotation(float rotation) {
 		this.rotation = rotation;
+	}
+
+	public void setRectangle(Rectangle rectangle) {
+		this.rectangle = rectangle;
+	}
+
+	public Animation getCurrentAnimation() {
+		return currentAnimation;
+	}
+
+	public void setCurrentAnimation(Animation currentAnimation) {
+		this.currentAnimation = currentAnimation;
 	}
 
 }

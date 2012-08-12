@@ -1,5 +1,9 @@
 package blackhorn;
 
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
+
 public abstract class Character extends MovableEntity {
 
 	private float health;
@@ -14,6 +18,14 @@ public abstract class Character extends MovableEntity {
 		this.armor = armor;
 		this.damage = damage;
 		this.attackSpeed = attackSpeed;
+	}
+
+	public void init(GameContainer gc) throws SlickException {
+		super.init(gc);
+	}
+
+	public void render(GameContainer gc, Graphics g) throws SlickException {
+		super.render(gc, g);
 	}
 
 	public void takeDamage(int damage) {
@@ -53,5 +65,4 @@ public abstract class Character extends MovableEntity {
 		MainGameState.objectListRemove.add(bullet);
 
 	}
-
 }

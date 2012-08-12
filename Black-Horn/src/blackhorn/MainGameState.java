@@ -28,13 +28,16 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 	public static ArrayList<Entity> terrainObjectList;
 	int i = 0;
 	public static Entity fakeentity;
-
-	public MainGameState(int stateID) {
+	public static CAnimations animationList;
+	
+	public MainGameState(int stateID) throws SlickException {
 
 		super();
+		animationList = new CAnimations();
+		animationList.init();
 		this.stateID = stateID;
 		MainGame.player = new Player(1755, 2400);
-
+		
 		//fakeentity = new fakeentity(0, 0, 0, 0, 0, 0);
 		// list of players and non-player spawned objects
 		objectList = new ArrayList<Entity>();
@@ -324,7 +327,7 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		objectList.add((Entity) new Enemy(1255, 2300, 9));
 		objectList.add(new Ground(400, 2450, 0f));
 		objectList.add(new Ground(750, 2500, 0f));
-
+		
 		objectList.add(new Ground(1155, 2450, 0f));
 		objectList.add(new Ground(1500, 2500, 0f));
 
@@ -353,6 +356,8 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 
 		for (int i = 0; i < terrainObjectList.size(); i++)
 			terrainObjectList.get(i).init(container);
+		
+	
 
 		initNifty(container, game, MainGame.myInputSystem);
 		// initNifty(container, game);
@@ -376,9 +381,11 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 	protected void renderGame(GameContainer container, StateBasedGame game, Graphics graphics) throws SlickException {
 
 		graphics.scale((float) 1, (float) 1);
-		graphics.translate(-MainGame.player.getX() - MainGame.player.getTexture().getHeight() / 2f + (float) container.getWidth() / 2f, -MainGame.player.getY()
-				- MainGame.player.getTexture().getWidth() / 2f + (float) container.getHeight() / 2f);
+	//	graphics.translate(-MainGame.player.getX() - MainGame.player.getTexture().getHeight() / 2f + (float) container.getWidth() / 2f, -MainGame.player.getY()
+		//		- MainGame.player.getTexture().getWidth() / 2f + (float) container.getHeight() / 2f);
 
+		graphics.translate(-MainGame.player.getX() - MainGame.player.getCurrentAnimation().getCurrentFrame().getHeight() / 2f + (float) container.getWidth() / 2f, -MainGame.player.getY()
+				- MainGame.player.getCurrentAnimation().getCurrentFrame().getWidth()  / 2f + (float) container.getHeight() / 2f);
 		for (int i = 0; i < 5; i++)
 			for (int j = 0; j < 5; j++)
 				map.draw(i * 2048, j * 1536);
@@ -394,8 +401,8 @@ public class MainGameState extends NiftyOverlayBasicGameState {
 		for (int i = 0; i < terrainObjectList.size(); i++)
 			terrainObjectList.get(i).render(container, graphics);
 
-		graphics.translate(+MainGame.player.getX() + MainGame.player.getTexture().getHeight() / 2f - (float) container.getWidth() / 2f, +MainGame.player.getY()
-				+ MainGame.player.getTexture().getWidth() / 2f - (float) container.getHeight() / 2f);
+		graphics.translate(+MainGame.player.getX() + MainGame.player.getCurrentAnimation().getCurrentFrame().getHeight() / 2f - (float) container.getWidth() / 2f, +MainGame.player.getY()
+				+ MainGame.player.getCurrentAnimation().getCurrentFrame().getWidth()  / 2f - (float) container.getHeight() / 2f);
 
 		graphics.scale((float) 1, (float) 1);
 	}

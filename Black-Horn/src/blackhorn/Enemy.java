@@ -12,7 +12,7 @@ public class Enemy extends Character {
 
 	public void init(GameContainer container) throws SlickException {
 
-		this.setTexture(new Image("/data/GrueBloodyGrin.png"));
+	//	this.setTexture(new Image("/data/GrueBloodyGrin.png"));
 		super.init(container);
 	}
 

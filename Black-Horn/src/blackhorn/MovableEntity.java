@@ -50,10 +50,10 @@ public abstract class MovableEntity extends Entity {
 	public void moveForward(int delta) { //ignored is used by projectiles to ignore the firing source
 
 		this.setRotation(Math.abs(this.getRotation()) * Math.signum(sideSpeed));
-		if(Math.signum(this.getRotation())>0)
+	/*	if(Math.signum(this.getRotation())>0)
 			this.getTexture().setRotation(this.getRotation());
 		else
-			this.getTexture().setRotation(this.getRotation());
+			this.getTexture().setRotation(this.getRotation());*/
 		float speed = sideSpeed * (float) delta;
 		float tmpx = this.getX() + speed;
 		detectCollision(tmpx, this.getY());
