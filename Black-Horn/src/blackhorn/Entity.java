@@ -23,7 +23,6 @@ public abstract class Entity {
 	}
 
 	public void init(GameContainer gc) throws SlickException {	
-	  currentAnimation = MainGameState.animationList.getCurrentAnimation(this);
 	  rectangle = new Rectangle (this.getX(),this.getY(),currentAnimation.getCurrentFrame().getWidth(),currentAnimation.getCurrentFrame().getHeight());
 	}
 

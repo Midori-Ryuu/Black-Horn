@@ -11,7 +11,7 @@ public class Enemy extends Character {
 	}
 
 	public void init(GameContainer container) throws SlickException {
-
+		MainGameState.animationList.getCurrentAnimation(this);
 	//	this.setTexture(new Image("/data/GrueBloodyGrin.png"));
 		super.init(container);
 	}

@@ -14,6 +14,7 @@ public class Player extends Character {
 	}
 
 	public void init(GameContainer container) throws SlickException {
+		MainGameState.animationList.getCurrentAnimation(this);
 		super.init(container);
 	}
 

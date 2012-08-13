@@ -62,12 +62,12 @@ public class MyInputListener implements InputListener {
 		switch (key) {
 		case Input.KEY_RIGHT:
 			MainGame.player.setSideSpeed(CConstants.PLAYER_SPEED);
-			MainGame.player.setCurrentAnimation(MainGameState.animationList.playerWalkingRight);
+			MainGameState.animationList.getCurrentAnimation(MainGame.player);
 			break;
 
 		case Input.KEY_LEFT:
 			MainGame.player.setSideSpeed(-CConstants.PLAYER_SPEED);
-			MainGame.player.setCurrentAnimation(MainGameState.animationList.playerWalkingLeft);
+			MainGameState.animationList.getCurrentAnimation(MainGame.player);
 			break;
 
 		case Input.KEY_UP:
@@ -101,12 +101,12 @@ public class MyInputListener implements InputListener {
 		if (key == Input.KEY_RIGHT)
 		{
 			MainGame.player.setSideSpeed(0f);
-			MainGame.player.setCurrentAnimation(MainGameState.animationList.playerStanding);
+			MainGameState.animationList.getCurrentAnimation(MainGame.player);
 		}
 		else if (key == Input.KEY_LEFT)
 		{
 			MainGame.player.setSideSpeed(0f);
-			MainGame.player.setCurrentAnimation(MainGameState.animationList.playerStanding);
+			MainGameState.animationList.getCurrentAnimation(MainGame.player);
 		}
 		else if (key == Input.KEY_SPACE)
 			MainGame.player.setHasFired(false);

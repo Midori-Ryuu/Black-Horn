@@ -15,7 +15,8 @@ public class Bullet extends MovableEntity {
 	}
 
 	public void init(GameContainer container) throws SlickException {
-		this.setTexture(new Image("/data/bullet.png"));
+		//this.setTexture(new Image("/data/bullet.png"));
+		MainGameState.animationList.getCurrentAnimation(this);
 		super.init(container);
 	}
 

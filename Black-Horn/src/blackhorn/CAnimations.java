@@ -6,69 +6,73 @@ import org.newdawn.slick.SlickException;
 
 public final class CAnimations {
 
-	public Animation playerWalkingLeft;
+	// Player walking left
+	Image playerWL1;
+	Image playerWL2;
+	Image playerWL3;
+	Image[] playerWL;
 
-	public Animation playerWalkingRight;
-	public Animation playerStanding;
-	public Animation groundStatic;
+	// Player walking right
+	;
+	// Image("data/playerWL1.png"),new Image("data/playerWL1.png")};
+	Image playerWR1;
+	Image playerWR2;
+	Image playerWR3;
+	Image[] playerWR;
 
-	public Animation enemyWalkingLeft;
-	public Animation enemyWalkingRight;
-	public Animation enemyStanding;
+	// Player standing
+	Image[] playerS;
+
+	// Enemy standing
+	Image[] enemyS;
 	
-	public Animation bulletStatic;
+	//Ground
+	Image[] groundS;
+	
+	//Bullet
+	Image[] bulletS;
 
-	public void init() throws SlickException{
+	public void init() throws SlickException {
 
-		playerWalkingLeft = new Animation();
-		enemyStanding = new Animation();
-		groundStatic = new Animation();
-		bulletStatic = new Animation();
-		playerStanding = new Animation();
-		playerWalkingRight = new Animation();
-		playerStanding.addFrame(new Image("data/playerS1.png"), 500);
-		playerWalkingLeft.addFrame(new Image("data/playerL2.png"), 500);
-		playerWalkingLeft.addFrame(new Image("data/playerL1.png"), 500);
-		playerWalkingLeft.addFrame(new Image("data/playerL3.png"), 500);
-		playerWalkingLeft.addFrame(new Image("data/playerL1.png"), 500);
-		playerWalkingLeft.setLooping(true);
-		playerWalkingRight.addFrame(new Image("data/playerR2.png"), 500);
-		playerWalkingRight.addFrame(new Image("data/playerR1.png"), 500);
-		playerWalkingRight.addFrame(new Image("data/playerR3.png"), 500);
-		playerWalkingRight.addFrame(new Image("data/playerR1.png"), 500);
-		playerWalkingRight.setLooping(true);
-		
-		enemyStanding.addFrame(new Image("data/GrueBloodyGrin.png"), 1000);
+		playerWL1 = new Image("data/playerWL1.png");
+		playerWL2 = new Image("data/playerWL2.png");
+		playerWL3 = new Image("data/playerWL3.png");
 
-		groundStatic.addFrame(new Image("data/rocks2.png"), 1000);
-		
-		bulletStatic.addFrame(new Image("data/bullet.png"),1000);
+		playerWR1 = new Image("data/playerWR1.png");
+		playerWR2 = new Image("data/playerWR2.png");
+		playerWR3 = new Image("data/playerWR3.png");
 
+		playerS = new Image[] {new Image("data/playerS1.png")};
+		enemyS = new Image[] {new Image("data/enemyS1.png")};
+		groundS = new Image[] {new Image("data/groundS.png")};
+		bulletS = new Image[] {new Image("data/bulletS.png")};
+
+		playerWL = new Image[] { playerWL2, playerWL1, playerWL3, playerWL1 };
+		playerWR = new Image[] { playerWR2, playerWR1, playerWR3, playerWR1 };
 	}
 
-	//	public static Animation getCurrentAnimation(Player player) {
-	//		return playerStanding;
-	//	}
-	//
-	//	public static Animation getCurrentAnimation(Enemy enemy) {
-	//		return enemyStanding;
-	//	}
-	//
-	//	public static Animation getCurrentAnimation(Ground ground) {
-	//		return groundStatic;
-	//	}
-
-	public Animation getCurrentAnimation(Entity entity) {
-		if (entity instanceof Enemy)
-			return enemyStanding;
-		if (entity instanceof Ground)
-			return groundStatic;
-		if (entity instanceof Player)
-			return playerStanding;
-		if (entity instanceof Bullet)
-			return bulletStatic;
+	public void getCurrentAnimation(Player player) {
+		if(player.getSideSpeed()<0)
+			player.setCurrentAnimation(new Animation(playerWL, 500));
 		else
-			return null;
-
+			if(player.getSideSpeed()>0)
+				player.setCurrentAnimation(new Animation(playerWR, 500));
+			else if(player.getSideSpeed()==0)
+				player.setCurrentAnimation(new Animation(playerS, 500));
 	}
+
+	public void getCurrentAnimation(Enemy enemy) {
+
+		enemy.setCurrentAnimation(new Animation(enemyS, 500));
+	}
+
+	public void getCurrentAnimation(Ground ground) {
+
+		ground.setCurrentAnimation(new Animation(groundS, 500));
+	}
+
+	public void getCurrentAnimation(Bullet bullet) {
+		bullet.setCurrentAnimation(new Animation(bulletS, 500));
+	}
+
 }
