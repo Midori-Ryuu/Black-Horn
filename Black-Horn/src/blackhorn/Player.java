@@ -25,9 +25,14 @@ public class Player extends Character {
 	public void render(GameContainer gc, Graphics g) throws SlickException {
 		super.render(gc, g);
 	}
+	
+	public void updateAnimation()
+	{
+		MainGameState.animationList.getCurrentAnimation(this);
+	}
 
 	public void fireWeapon(GameContainer gc) {
-
+		//this.updateState(CConstants.FIRING);
 		Bullet bullet = new Bullet(this.getRectangle().getCenterX() + Math.signum(this.getRotation()) * (this.getRectangle().getWidth() / 2 + 15.5f), this.getRectangle()
 				.getCenterY(), this); // spawn a bullet in front of player
 		try {
@@ -81,4 +86,5 @@ public class Player extends Character {
 		this.hasFired = hasFired;
 	}
 
+	
 }

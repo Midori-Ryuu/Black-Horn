@@ -17,8 +17,17 @@ public class Enemy extends Character {
 	}
 
 	public void update(GameContainer container, int delta) throws SlickException {
+		if(this.getCurrentStateID()!=this.getPreviousStateID())
+			MainGameState.animationList.getCurrentAnimation(this);			
+			
 		super.update(container, delta);
 	}
+	
+	public void updateAnimation()
+	{
+		MainGameState.animationList.getCurrentAnimation(this);
+	}
+
 
 	@Override
 	public void groundCollision(Ground ground) {

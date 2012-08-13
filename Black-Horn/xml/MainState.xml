@@ -2,15 +2,14 @@
 <nifty xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://niftygui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
-	<screen id="start" controller="predaN00b.theThing.V0007.MyScreenController">
-		<layer controller="predaN00b.theThing.V0007.ElementController"
-			childLayout="absolute">
+	<screen id="start" controller="blackhorn.MyScreenController">
+		<layer controller="blackhorn.ElementController" childLayout="absolute">
 			<panel width="100px" height="100px" childLayout="center"
-				backgroundColor="#ff0f" x="80px" y="80px">
-				<image filename="/data/The_Thing.jpg" childLayout="center">
+				backgroundColor="#284f" x="80px" y="80px">
+				<image filename="/data/Ryuu.png" childLayout="center">
 
 					<control name="label" font="aurulent-sans-16.fnt"
-						childLayout="center" color="#055f" text="Hello World!">
+						childLayout="center" color="#555f" text="Hello World!">
 						<interact onClick="next()" />
 					</control>
 

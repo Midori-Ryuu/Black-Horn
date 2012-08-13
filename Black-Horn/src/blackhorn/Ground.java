@@ -24,4 +24,8 @@ public class Ground extends Entity {
 
 	}
 
+	public void updateAnimation() {
+		MainGameState.animationList.getCurrentAnimation(this);
+	}
+
 }

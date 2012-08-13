@@ -30,7 +30,8 @@ public abstract class MovableEntity extends Entity {
 		super.update(gc, delta);
 		if (sideSpeed != 0f)
 			moveForward(delta);
-
+		if (this.getSideSpeed() == 0)
+			this.updateState(CConstants.STANDING);
 		jumpUp(delta);
 
 	}
@@ -50,10 +51,14 @@ public abstract class MovableEntity extends Entity {
 	public void moveForward(int delta) { //ignored is used by projectiles to ignore the firing source
 
 		this.setRotation(Math.abs(this.getRotation()) * Math.signum(sideSpeed));
-	/*	if(Math.signum(this.getRotation())>0)
-			this.getTexture().setRotation(this.getRotation());
-		else
-			this.getTexture().setRotation(this.getRotation());*/
+		
+		if (this.getSideSpeed() < 0 && this.getCurrentStateID() != CConstants.WALKING_LEFT)
+			this.updateState(CConstants.WALKING_LEFT);
+		else if (this.getSideSpeed() > 0 && this.getCurrentStateID() != CConstants.WALKING_RIGHT)
+			this.updateState(CConstants.WALKING_RIGHT);
+
+		//System.out.println(this.getCurrentStateID() + "  last" + this.getPreviousStateID());
+		
 		float speed = sideSpeed * (float) delta;
 		float tmpx = this.getX() + speed;
 		detectCollision(tmpx, this.getY());

@@ -2,13 +2,13 @@
 <nifty xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://niftygui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
-	<screen id="start" controller="predaN00b.theThing.MyScreenController">
+	<screen id="start" controller="blackhorn.MyScreenController">
 		<layer childLayout="center">
 			<panel width="800px" height="640px" childLayout="center"
 				backgroundColor="#0000">
 				<image filename="/data/MainMenu.jpg" childLayout="center">
-					<panel controller="predaN00b.theThing.ElementController"
-						width="300px" height="300px">
+					<panel controller="blackhorn.ElementController" width="300px"
+						height="300px">
 						<interact onClick="next()" />
 					</panel>
 				</image>

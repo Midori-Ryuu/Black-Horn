@@ -28,6 +28,11 @@ public class Bullet extends MovableEntity {
 	public void render(GameContainer container, Graphics g) throws SlickException {
 		super.render(container, g);
 	}
+	
+	public void updateAnimation()
+	{
+		MainGameState.animationList.getCurrentAnimation(this);
+	}
 
 	@Override
 	public void groundCollision(Ground ground) {

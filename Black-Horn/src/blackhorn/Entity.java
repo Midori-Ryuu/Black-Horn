@@ -14,16 +14,20 @@ public abstract class Entity {
 	private float rotation;
 	private Rectangle rectangle;
 	private Animation currentAnimation;
-	
+	private int previousStateID;
+	private int currentStateID;
+
 	Entity(float x, float y, float rotation) {
 		this.x = x;
 		this.y = y;
 		this.rotation = rotation;
+		this.previousStateID = 0;
+		this.currentStateID = 0;
 
 	}
 
-	public void init(GameContainer gc) throws SlickException {	
-	  rectangle = new Rectangle (this.getX(),this.getY(),currentAnimation.getCurrentFrame().getWidth(),currentAnimation.getCurrentFrame().getHeight());
+	public void init(GameContainer gc) throws SlickException {
+		rectangle = new Rectangle(this.getX(), this.getY(), currentAnimation.getCurrentFrame().getWidth(), currentAnimation.getCurrentFrame().getHeight());
 	}
 
 	public void update(GameContainer gc, int delta) throws SlickException {
@@ -31,16 +35,13 @@ public abstract class Entity {
 
 	public void render(GameContainer gc, Graphics g) throws SlickException {
 		//texture.draw(x, y);
-		currentAnimation.draw(x, y); 
+		currentAnimation.draw(x, y);
 	}
 
 	public abstract void doCollision(MovableEntity movableEntity);
 
 	public Rectangle getRectangle() {
 		//return new Rectangle(this.x, this.y, this.texture.getWidth(), this.texture.getHeight());
-		//if (texture != null)
-
-		//rectangle.setBounds(x, y, this.texture.getWidth(), this.texture.getHeight());
 		rectangle.setX(x);
 		rectangle.setY(y);
 		return rectangle;
@@ -48,8 +49,6 @@ public abstract class Entity {
 
 	public Rectangle getRectangle(float tmpx, float tmpy) {
 		//return new Rectangle(tmpx, tmpy, this.texture.getWidth(), this.texture.getHeight());
-		//if (texture != null)
-		//rectangle.setBounds(tmpx, tmpy, this.texture.getWidth(), this.texture.getHeight());
 
 		rectangle.setX(tmpx);
 		rectangle.setY(tmpy);
@@ -100,5 +99,29 @@ public abstract class Entity {
 	public void setCurrentAnimation(Animation currentAnimation) {
 		this.currentAnimation = currentAnimation;
 	}
+
+	public int getPreviousStateID() {
+		return previousStateID;
+	}
+
+	public void setPreviousStateID(int previousStateID) {
+		this.previousStateID = previousStateID;
+	}
+
+	public int getCurrentStateID() {
+		return currentStateID;
+	}
+
+	public void setCurrentStateID(int currentStateID) {
+		this.currentStateID = currentStateID;
+	}
+
+	public void updateState(int state) {
+		this.previousStateID = this.currentStateID;
+		this.currentStateID = state;
+		this.updateAnimation();
+	}
+
+	public abstract void updateAnimation();
 
 }

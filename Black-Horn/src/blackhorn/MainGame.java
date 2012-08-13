@@ -10,8 +10,6 @@ import de.lessvoid.nifty.slick2d.input.SlickSlickInputSystem;
 public class MainGame extends StateBasedGame {
 
 	public static boolean enteringFromMenu = false;
-	public static final int MAINGAMESTATE = 0;
-	public static final int MAINMENUSTATE = 1;
 	public static MyInputListener myInputListener;
 	public static Player player;
 	public static SlickSlickInputSystem myInputSystem;
@@ -42,9 +40,9 @@ public class MainGame extends StateBasedGame {
 		MainGame.container = container;
 		
 		
-		this.addState(new MainGameState(MAINGAMESTATE));
-		this.addState(new MainMenuState(MAINMENUSTATE));
+		this.addState(new MainGameState(CConstants.MAINGAMESTATE));
+		this.addState(new MainMenuState(CConstants.MAINMENUSTATE));
 		//this.enterState(MAINMENUSTATE);
-		this.enterState(MAINGAMESTATE);
+		this.enterState(CConstants.MAINGAMESTATE);
 	}
 }
